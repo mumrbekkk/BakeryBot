@@ -10,7 +10,7 @@ from aiogram.fsm.context import FSMContext
 router = Router()
 
 
-@router.message(Command("produkt_qoshish"))
+@router.message(Command("mahsulot_qoshish"))
 async def add_item(message: Message, state: FSMContext):
     await message.answer(text=message.from_user.username)
     username = message.from_user.username
@@ -24,6 +24,11 @@ async def add_item(message: Message, state: FSMContext):
 
 @router.message(AddItemState.name)
 async def item_name(message: Message, state: FSMContext):
+    existing_item = await requests.get_item_by_name(message.text)
+    if existing_item:
+        await message.answer("Bu mahsulot mavjud! Boshqa ism kiriting!")
+        return
+
     await state.update_data(name=message.text)
     await state.set_state(AddItemState.description)
     await message.answer("🖊 Mahsulot tavsifini kiriting:")
@@ -80,8 +85,3 @@ async def item_category(message: Message, state: FSMContext):
         🏷 Kategoriya: {data['category']}
         """)
     await state.clear()
-
-
-
-
-

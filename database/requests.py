@@ -27,6 +27,7 @@ async def add_item(new_item: SweetItem):
         session.add(new_item)
         await session.commit()
 
+
 async def get_items_by_category_id(category_id: int):
     async with async_session() as session:
         return await session.scalars(

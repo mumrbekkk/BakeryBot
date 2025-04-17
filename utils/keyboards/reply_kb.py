@@ -5,14 +5,17 @@ from aiogram.utils.keyboard import ReplyKeyboardBuilder
 from utils.constants import constants_uz
 from database.requests import get_items_by_category_id, get_all_categories
 
-start_keyboard = ReplyKeyboardMarkup(
-    keyboard=[
-        [KeyboardButton(text=constants_uz.MENU_MSG_HANDLER_TXT)],
-        [KeyboardButton(text=constants_uz.ABOUT_MSG_HANDLER_TXT)]
-    ],
-    resize_keyboard=True,
-    input_field_placeholder=constants_uz.START_KB_CAPTION
-)
+
+async def start_kb(is_admin: bool):
+    keyboard = ReplyKeyboardBuilder()
+    keyboard.add(KeyboardButton(text=constants_uz.MENU_MSG_HANDLER_TXT))
+    keyboard.add(KeyboardButton(text=constants_uz.ABOUT_MSG_HANDLER_TXT))
+
+    if is_admin:
+        keyboard.add(KeyboardButton(text="/mahsulot_qoshish"))
+        keyboard.add(KeyboardButton(text="/stop"))
+
+    return keyboard.adjust(1).as_markup(resize_keyboard=True, input_field_placeholder=constants_uz.START_KB_CAPTION)
 
 
 async def categories_kb():

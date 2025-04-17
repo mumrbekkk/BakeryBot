@@ -1,4 +1,4 @@
-from .cmd_handlers import start_router, add_router
+from .cmd_handlers import start_router, add_router, stop_adding_router
 from .msg_handlers import menu_router, big_cakes_router, small_cakes_router, desserts_router, orqaga_router
 
 routers = [
@@ -8,6 +8,7 @@ routers = [
     big_cakes_router,
     small_cakes_router,
     desserts_router,
+    stop_adding_router,
     add_router,
 ]
 

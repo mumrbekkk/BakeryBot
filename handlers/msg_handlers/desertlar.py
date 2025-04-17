@@ -6,6 +6,7 @@ from states.keyboard_states import ReplyKeyboardState
 from utils.keyboards import reply_kb
 from utils.constants import constants_uz
 from database.requests import get_item_by_name
+from .methods import price_to_string
 
 router = Router()
 
@@ -24,14 +25,15 @@ async def msg_big_cakes(message: Message, state: FSMContext):
 async def msg_big_cake_details(message: Message):
     user_message = message.text
     item = await get_item_by_name(user_message)
+    price_str = await price_to_string(int(item.price)) or 0
 
     if item:
-        await message.answer_photo(photo=item.image_url)
-        await message.reply(text=f"\n------------------------------------------"
-                                 f"\nNarxi: {int(item.price) or 0} so'm"
-                                 f"\nKategoriya: {item.item_category.name}"
-                                 f"\n------------------------------------------"
-                                 f"\n{item.description}")
+        await message.answer_photo(
+            photo=item.image_url,
+            caption=f"Narxi: {price_str} so'm"
+                    f"\nKategoriya: {item.item_category.name}"
+        )
+        await message.reply(text=f"{item.description}")
 
 
 
