@@ -7,4 +7,5 @@ class AddItemState(StatesGroup):
     image_url = State()
     price = State()
     category = State()
+    confirm = State()
 

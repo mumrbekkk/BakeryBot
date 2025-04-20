@@ -6,7 +6,7 @@ from states.keyboard_states import ReplyKeyboardState
 from utils.keyboards import reply_kb
 from utils.constants import constants_uz
 from database.requests import get_item_by_name
-from .methods import price_to_string
+from helpers.methods import price_to_string
 
 router = Router()
 

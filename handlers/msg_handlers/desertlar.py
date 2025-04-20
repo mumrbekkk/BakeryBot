@@ -6,13 +6,13 @@ from states.keyboard_states import ReplyKeyboardState
 from utils.keyboards import reply_kb
 from utils.constants import constants_uz
 from database.requests import get_item_by_name
-from .methods import price_to_string
+from helpers.methods import price_to_string
 
 router = Router()
 
 
 @router.message(ReplyKeyboardState.menu_state, F.text == constants_uz.DESSERTS_MSG_HANDLER_TXT)
-async def msg_big_cakes(message: Message, state: FSMContext):
+async def msg_desserts(message: Message, state: FSMContext):
     await state.set_state(ReplyKeyboardState.desserts_state)
 
     await message.reply(
