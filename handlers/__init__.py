@@ -1,4 +1,5 @@
-from .admin_handlers import add_router, stop_adding_router, all_items_router, item_details_router
+from .admin_handlers import add_router, stop_adding_router, all_items_router, item_details_router, delete_item_router
+from . import admin_handlers
 from .cmd_handlers import start_router
 from .msg_handlers import (menu_router, big_cakes_router, small_cakes_router, desserts_router,
                            orqaga_router, comment_router, about_router, admin_router)
@@ -17,5 +18,7 @@ routers = [
     add_router,
     all_items_router,
     item_details_router,
+    delete_item_router,
+    admin_handlers.update_item_router,
 ]
 

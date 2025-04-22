@@ -3,7 +3,7 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine, AsyncSession
 
 
-engine = create_async_engine(url="sqlite+aiosqlite:///db.sqlite3")
+engine = create_async_engine(url="sqlite+aiosqlite:///db.sqlite3", pool_size=20, max_overflow=10)
 async_session = async_sessionmaker(bind=engine, class_=AsyncSession, expire_on_commit=False)
 
 
@@ -26,7 +26,7 @@ class Category(Base):
     name: Mapped[str] = mapped_column(String(100))
     description: Mapped[str] = mapped_column(String(200))
 
-    sweet_items = relationship("SweetItem", back_populates="item_category")
+    sweet_items = relationship("SweetItem", back_populates="item_category", lazy="selectin")
 
 
 class SweetItem(Base):
@@ -39,7 +39,7 @@ class SweetItem(Base):
     price: Mapped[str] = mapped_column()
     category: Mapped[int] = mapped_column(ForeignKey("categories.id"))
 
-    item_category = relationship("Category", back_populates="sweet_items")
+    item_category = relationship("Category", back_populates="sweet_items", lazy="selectin")
 
 
 async def async_database():

@@ -2,7 +2,7 @@ from aiogram.types import CallbackQuery, Message
 from aiogram.fsm.context import FSMContext
 
 from states import keyboard_states
-from helpers.methods import is_admin_or_not
+from helpers.validators import is_admin_or_not
 from utils.constants import constants_uz
 from utils.keyboards import reply_kb
 

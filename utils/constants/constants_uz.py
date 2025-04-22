@@ -1,5 +1,3 @@
-
-
 # START
 WELCOME_MESSAGE = f"Assalomu alaykum.\nSweet Housening ofitsial BOTiga xush kelibsiz!"
 START_MSG_REPLY_TXT = "Quyidagi amallardan birini tanglang"
@@ -7,34 +5,33 @@ START_PHOTO_CAPTION = "Menu Rasmi"
 
 START_KB_CAPTION = "Quyidagilarni tanlang..."
 
-
 # MENU
 MENU_MSG_HANDLER_TXT = "🧾 Menu"
 MENU_MSG_REPLY_TXT = "Sweet House Menusi"
 
-
 # COMMENT
 COMMENT_QUESTION_MSG_HANDLER_TXT = "🖊 Izoh yoki savol qoldirish"
-
 
 # BIG CAKES
 BIG_CAKES_MSG_HANDLER_TXT = "🎂 Katta Tortlar"
 BIG_CAKES_REPLY_TXT = "Katta Tortlar tug'ilgan kun va to'ylar uchun zo'r tanlov!"
 
-
 # SMALL CAKES
 SMALL_CAKES_MSG_HANDLER_TXT = "🥮 Kichik Tortlar"
 SMALL_CAKES_REPLY_TXT = "Kichik to'rtlar buyurtma berib oila davrida go'zal suhbat asnosida lazzatlaning!"
-
 
 # DESSERTS
 DESSERTS_MSG_HANDLER_TXT = "🍰 Desertlar"
 DESSERTS_REPLY_TXT = "Desertlar kundalik tanovul uchun ajoyib va hamyonbob tanlov!"
 
-
 # ABOUT
 ABOUT_MSG_HANDLER_TXT = "ℹ️ Biz Haqimizda"
-ABOUT_MSG_TXT = "Bizni ijtimoiy tarmoqlarda kuzating"
+ABOUT_MSG_TXT = ("Muallif: Nargiza Rahmatullayeva\n"
+                 "🔴ТОРТ ПЕРОЖНИларимиз 100% ДАМАШНИЙ КАЙМОКА  пиширилади✅\n"
+                 "🔴ХАЛОЛЛИК ВА СИФАТ 1-УРИНДА❗\n"
+                 "🔴Авторлик тортларим 3000+\n"
+                 "🔴Укувчиларим 50+\n")
+
 INSTAGRAM_MSG_HANDLER_TXT = "Instagram"
 INSTAGRAM_IMG_LINK = ("https://media-hosting.imagekit.io/9689767997da4e3e/photo_2025-04-18_15-57-27.jpg?Expires=183958"
                       "1856&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=0yV5c8NPMU63EbyIoAg2KuIp1giqRq4lZuuQgrnLZLVsIjz8YyeKYi"
@@ -52,16 +49,14 @@ TELEGRAM_IMG_LINK = ("https://media-hosting.imagekit.io/552555bdb6a74b84/giza_te
                      "MnnZVtLhdEjlnvSKD0cVPOj38IsySk4EzA6nkV0RPv1S9DAUKjbHHdY0csEqXKC05oGpL6ZauDUMEg~9mGw__")
 TELEGRAM_LINK = "t.me/sweet_house_giza"
 
+BACKUP_CONTACTS_MSG_HANDLER_TXT = "Qayta aloqa"
+
 # BACK
 BACK_MSG_HANDLER_TXT = "↩️ Orqaga"
-
 
 # ADMIN
 ADMIN_MSG_HANDLER_TXT = "🔐 Admin"
 
-ADMIN_WELCOME_MSG = "Admin panelga xush kelibsiz!"
+ADMIN_WELCOME_MSG = "Admin panel 🤫"
 ADMIN_CMD_1_TXT = "/mahsulot_qoshish"
 ADMIN_ITEM_LIST_MSG_HANDLER_TXT = "🧾 Mahsulotlar Ro'yhati"
-
-
-

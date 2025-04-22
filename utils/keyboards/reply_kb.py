@@ -43,6 +43,7 @@ async def about_kb():
 
     keyboard.add(KeyboardButton(text=constants_uz.INSTAGRAM_MSG_HANDLER_TXT))
     keyboard.add(KeyboardButton(text=constants_uz.TELEGRAM_MSG_HANDLER_TXT))
+    keyboard.add(KeyboardButton(text=constants_uz.BACKUP_CONTACTS_MSG_HANDLER_TXT))
     keyboard.add(KeyboardButton(text=constants_uz.BACK_MSG_HANDLER_TXT))
 
     return keyboard.adjust(1).as_markup(resize_keyboard=True)

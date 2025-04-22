@@ -33,7 +33,10 @@ async def msg_instagram(message: Message):
     await message.answer(constants_uz.TELEGRAM_LINK)
 
 
-
+@router.message(ReplyKeyboardState.about_state, F.text == constants_uz.BACKUP_CONTACTS_MSG_HANDLER_TXT)
+async def msg_instagram(message: Message):
+    await message.answer("☎️ 90-090-01-64")
+    await message.answer("📍Adres: Shovot lelinizm 49 IDUM yoni, Zargar ko'chasi 46-uy")
 
 
 

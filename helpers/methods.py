@@ -39,7 +39,3 @@ async def send_data_to_admin(bot, data):
         await bot.send_message(admin.tg_id, data)
 
 
-async def validate_url(message: str) -> bool:
-    return message.startswith("http://") or message.startswith("https://")
-
-

@@ -3,6 +3,7 @@ from database.models import User, Category, SweetItem
 
 from sqlalchemy import select
 from sqlalchemy.orm import selectinload
+from sqlalchemy.exc import SQLAlchemyError
 
 
 # --------------------------- USER MODEL RELATED --------------------------- #
@@ -34,10 +35,19 @@ async def get_all_categories():
     return categories
 
 
+async def get_category_by_id(category_id: int) -> Category | None:
+    async with async_session() as session:
+        category = await session.scalar(
+            select(Category)
+            .where(Category.id == category_id)
+        )
+    return category
+
+
 # --------------------------- ITEM MODEL RELATED --------------------------- #
 async def get_all_items():
     async with async_session() as session:
-        items = session.scalars(select(SweetItem))
+        items = await session.scalars(select(SweetItem))
     return items
 
 
@@ -71,10 +81,39 @@ async def get_item_by_id(item_id: int) -> SweetItem | None:
     async with async_session() as session:
         query = (
             select(SweetItem)
+            .options(selectinload(SweetItem.item_category))
             .where(SweetItem.id == item_id)
         )
         result = await session.execute(query)
         item = result.scalars().first()
-
     return item
+
+
+async def update_item_field(item_id: int, field_name: str, new_value: str) -> bool:
+    async with async_session() as session:
+        item = await session.get(SweetItem, item_id)
+        if not item:
+            return False
+        if hasattr(item, field_name):
+            setattr(item, field_name, new_value)
+            await session.commit()
+            return True
+        else:
+            return False
+
+
+async def delete_item_by_id(item_id: int):
+    async with async_session() as session:
+        item = await session.scalar(
+            select(SweetItem).where(SweetItem.id == item_id)
+        )
+        await session.delete(item)
+        await session.commit()
+
+
+
+
+
+
+
 
