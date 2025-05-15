@@ -7,7 +7,8 @@ START_KB_CAPTION = "Quyidagilarni tanlang..."
 
 # MENU
 MENU_MSG_HANDLER_TXT = "🧾 Menu"
-MENU_MSG_REPLY_TXT = "Sweet House Menusi"
+WELCOME_MENU_TXT = "Sweet House Menu Bo'limi"
+MENU_MSG_REPLY_TXT = "Menu"
 
 # COMMENT
 COMMENT_QUESTION_MSG_HANDLER_TXT = "🖊 Izoh yoki savol qoldirish"
@@ -58,5 +59,18 @@ BACK_MSG_HANDLER_TXT = "↩️ Orqaga"
 ADMIN_MSG_HANDLER_TXT = "🔐 Admin"
 
 ADMIN_WELCOME_MSG = "Admin panel 🤫"
-ADMIN_CMD_1_TXT = "/mahsulot_qoshish"
-ADMIN_ITEM_LIST_MSG_HANDLER_TXT = "🧾 Mahsulotlar Ro'yhati"
+ADMIN_CATEGORY_MSG_HANDLER_TXT = "🏷 Kategoriya bo'limi"
+ADMIN_ITEM_MSG_HANDLER_TXT = "Masulot bo'limi"
+
+ITEM_LIST_MSG_HANDLER_TXT = "🧾 Mahsulotlar Ro'yhati"
+ADD_ITEM_CMD_HANDLER_TXT = "/mahsulot_qoshish"
+
+
+# CATEGORY
+ALL_CATEGORIES_TXT = "🧾 Kategoriyalar"
+ADD_CATEGORY_TXT = "➕ Kategoriya qo'shish"
+
+
+
+
+

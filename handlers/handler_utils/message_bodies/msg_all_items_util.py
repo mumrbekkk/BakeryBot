@@ -12,8 +12,8 @@ async def all_items__(msg, state: FSMContext):
     items_list_kb = await inline_kb.items_list_kb(all_items)
 
     if type(msg) is Message:
-        await msg.answer(text="Mahsulotlar Bo'limi", reply_markup=ReplyKeyboardRemove())
-        await msg.answer(text="Mahsulotlar", reply_markup=items_list_kb)
+        await msg.answer(text="🧾 Mahsulotlar Ro'yhati", reply_markup=ReplyKeyboardRemove())
+        await msg.answer(text="🧾 Ro'yhat 🧾", reply_markup=items_list_kb)
     elif type(msg) is CallbackQuery:
-        await msg.message.edit_text(text="🧾Mahsulotlar Ro'yhati🧾", reply_markup=items_list_kb)
+        await msg.message.edit_text(text="🧾 Ro'yhat 🧾", reply_markup=items_list_kb)
 

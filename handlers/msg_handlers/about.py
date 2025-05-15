@@ -9,7 +9,7 @@ from states.keyboard_states import ReplyKeyboardState
 router = Router()
 
 
-@router.message(F.text == constants_uz.ABOUT_MSG_HANDLER_TXT)
+@router.message(ReplyKeyboardState.home_state, F.text == constants_uz.ABOUT_MSG_HANDLER_TXT)
 async def msg_about(message: Message, state: FSMContext):
     await state.set_state(ReplyKeyboardState.about_state)
 

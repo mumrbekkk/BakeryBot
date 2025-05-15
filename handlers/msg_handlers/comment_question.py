@@ -7,12 +7,13 @@ from utils.constants import constants_uz
 from states.comment_states import CommentState
 from utils.keyboards import inline_kb
 from helpers.methods import send_data_to_admin
+from states.keyboard_states import ReplyKeyboardState
 from handlers.handler_utils.command_bodies.cmd_start_util import cmd_start_callback__
 
 router = Router()
 
 
-@router.message(F.text == constants_uz.COMMENT_QUESTION_MSG_HANDLER_TXT)
+@router.message(ReplyKeyboardState.home_state, F.text == constants_uz.COMMENT_QUESTION_MSG_HANDLER_TXT)
 async def msg_comment(message: Message, state: FSMContext):
     await state.set_state(CommentState.comment)
     await message.reply(text="Izoh yoki savolingizni yozib qoldiring...",

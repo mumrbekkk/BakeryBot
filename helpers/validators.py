@@ -1,6 +1,6 @@
 from aiogram.types import Message, CallbackQuery
 
-from database.requests import get_category_by_id
+from database.requests import get_category_by_id, get_category_by_name
 from utils.constants import constants
 from database import requests
 
@@ -43,10 +43,10 @@ async def validate_price(price: str, message: Message = None, callback: Callback
         int(price)
     except ValueError:
         if callback:
-            await callback.message.reply("❌ Iltimos, to'g'ri narx kiriting (faqat raqam).")
+            await callback.message.reply("❌ Iltimos, faqat raqam kiriting.")
             return False
 
-        await message.reply("❌ Iltimos, to'g'ri narx kiriting (faqat raqam).")
+        await message.reply("❌ Iltimos, faqat raqam kiriting.")
         return False
 
     return True
@@ -84,3 +84,21 @@ async def validate_updating_field(field_to_update: str, value: str, message: Mes
         return await validate_category(value, message=message)
 
     return True
+
+
+async def validate_category_name(category_name: str, message: Message = None) -> bool:
+    category_exists = await get_category_by_name(category_name)
+    if category_exists:
+        await message.answer(text="Bu kategoriya mavjud!")
+        return False
+
+    return True
+
+
+
+
+
+
+
+
+
