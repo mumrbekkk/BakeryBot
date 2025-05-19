@@ -86,9 +86,11 @@ async def item_image_url(message: Message, state: FSMContext):
 @router.message(AddItemState.price)
 async def item_price(message: Message, state: FSMContext):
     price = message.text
-    if not await validate_price(price, message):
+    validated_price = await validate_price(price, message)
+    if not validated_price:
         return
-    await state.update_data(price=int(price))
+
+    await state.update_data(price=validated_price)
 
     categories = await requests.get_all_categories()
     categories_txt = ""
@@ -140,6 +142,7 @@ async def item_confirm_yes(callback: CallbackQuery, state: FSMContext):
             category=data['category']
         )
     )
+    print(f"Type: {type(data['price'])}")
 
     await callback.message.edit_text(
         text="✅ Mahsulot muvaffaqiyatli qo‘shildi!"

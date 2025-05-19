@@ -38,18 +38,17 @@ async def validate_url(url: str, message: Message = None, callback: CallbackQuer
     return True
 
 
-async def validate_price(price: str, message: Message = None, callback: CallbackQuery = None) -> bool:
+async def validate_price(price: str, message: Message = None) -> int | None:
     try:
-        int(price)
+        validated_price = int(price)
+        if validated_price <= 0:
+            await message.reply("❌ Iltimos, faqat musbat son kiriting.")
+            return None
+
+        return validated_price
     except ValueError:
-        if callback:
-            await callback.message.reply("❌ Iltimos, faqat raqam kiriting.")
-            return False
-
         await message.reply("❌ Iltimos, faqat raqam kiriting.")
-        return False
-
-    return True
+        return None
 
 
 async def validate_category(category_id: str, message: Message = None, callback: CallbackQuery = None) -> bool:
