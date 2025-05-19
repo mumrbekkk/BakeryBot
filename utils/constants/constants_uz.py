@@ -10,20 +10,12 @@ MENU_MSG_HANDLER_TXT = "🧾 Menu"
 WELCOME_MENU_TXT = "Sweet House Menu Bo'limi"
 MENU_MSG_REPLY_TXT = "Menu"
 
+# PRICE FILTER
+MSG_FILTER_PRICE_TXT = "Narxga Qarab Mahsulot Topish"
+
+
 # COMMENT
 COMMENT_QUESTION_MSG_HANDLER_TXT = "🖊 Izoh yoki savol qoldirish"
-
-# BIG CAKES
-BIG_CAKES_MSG_HANDLER_TXT = "🎂 Katta Tortlar"
-BIG_CAKES_REPLY_TXT = "Katta Tortlar tug'ilgan kun va to'ylar uchun zo'r tanlov!"
-
-# SMALL CAKES
-SMALL_CAKES_MSG_HANDLER_TXT = "🥮 Kichik Tortlar"
-SMALL_CAKES_REPLY_TXT = "Kichik to'rtlar buyurtma berib oila davrida go'zal suhbat asnosida lazzatlaning!"
-
-# DESSERTS
-DESSERTS_MSG_HANDLER_TXT = "🍰 Desertlar"
-DESSERTS_REPLY_TXT = "Desertlar kundalik tanovul uchun ajoyib va hamyonbob tanlov!"
 
 # ABOUT
 ABOUT_MSG_HANDLER_TXT = "ℹ️ Biz Haqimizda"

@@ -6,7 +6,7 @@ from aiogram.filters import StateFilter
 from states.keyboard_states import ReplyKeyboardState
 from states.inline_kb_states import InlineKeyboardState
 from utils.keyboards import inline_kb
-from database.requests import get_category_by_id, update_category_field
+from database.all_requests import get_category_by_id, update_category_field
 
 
 router = Router()

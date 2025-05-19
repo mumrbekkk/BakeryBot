@@ -1,6 +1,6 @@
 from handlers.admin_handlers import category
 from .cmd_handlers import start
-from .msg_handlers import (about, admin, category, comment_question, menu, orqaga)
+from .msg_handlers import (about, admin, category, price_filter, comment_question, menu, orqaga)
 
 from handlers.admin_handlers.category import (
     msg_category, category_list, category_details,
@@ -14,6 +14,7 @@ routers = [
     start.router,
     menu.router,
     orqaga.router,
+    price_filter.router,
     category.router,
     comment_question.router,
     about.router,

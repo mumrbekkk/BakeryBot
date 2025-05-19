@@ -1,4 +1,4 @@
-from database.requests import get_user_by_username
+from database.all_requests import get_user_by_username
 from utils.constants import constants
 
 
@@ -23,6 +23,17 @@ async def price_to_string(price: int):
     return price_str
 
 
+async def string_price_to_int(price: str) -> int:
+    _price = ""
+    for i in price:
+        if i == ",":
+            continue
+        else:
+            _price += i
+
+    return int(_price)
+
+
 async def is_admin_or_not(username) -> bool:
     if username == constants.ADMIN_1_USERNAME:
         return True
@@ -37,5 +48,14 @@ async def send_data_to_admin(bot, data):
 
     if admin:
         await bot.send_message(admin.tg_id, data)
+
+
+async def price_filter_pairs(start, end, step):
+    range_list = [i for i in range(start, end, step)]
+    return_list = []
+    for current, next in zip(range_list, range_list[1:]):
+        return_list.append([current, next])
+
+    return return_list
 
 

@@ -9,6 +9,7 @@ from handlers.handler_utils.command_bodies.cmd_start_util import cmd_start_messa
 from handlers.handler_utils.message_bodies.msg_menu_util import msg_menu__
 from handlers.handler_utils.message_bodies.msg_admin_util import msg_admin__
 from handlers.handler_utils.message_bodies.msg_category_util import msg_category__
+from handlers.handler_utils.message_bodies.msg_price_filter_util import msg_price_filter__
 
 
 router = Router()
@@ -23,6 +24,12 @@ async def msg_back(message: Message, state: FSMContext):
 
     elif current_state == ReplyKeyboardState.menu_category_state.state:
         await msg_menu__(message, state)
+
+    elif current_state == ReplyKeyboardState.price_filter_state:
+        await msg_menu__(message, state)
+
+    elif current_state == ReplyKeyboardState.price_filter_item_state:
+        await msg_price_filter__(message, state)
 
     # ABOUT CONDITION
     elif current_state == ReplyKeyboardState.about_state.state:

@@ -1,7 +1,7 @@
 from aiogram.utils.keyboard import InlineKeyboardBuilder, InlineKeyboardButton
 
 from database.models import SweetItem, Category
-from database.requests import get_all_categories, get_items_by_category_id
+from database.all_requests import get_all_categories, get_items_by_category_id
 
 
 async def menu_kb():

@@ -3,7 +3,7 @@ from aiogram.types import CallbackQuery
 from aiogram.filters import StateFilter
 from aiogram.fsm.context import FSMContext
 
-from database.requests import get_item_by_id, delete_item_by_id
+from database.all_requests import get_item_by_id, delete_item_by_id
 from utils.keyboards import inline_kb
 from states.inline_kb_states import InlineKeyboardState
 from states.delete_item_states import DeleteItemState

@@ -3,12 +3,12 @@ from aiogram.types import Message, CallbackQuery
 from aiogram.fsm.context import FSMContext
 from aiogram.filters import StateFilter
 
-from database.requests import get_item_by_id
+from database.all_requests import get_item_by_id
 from utils.keyboards import inline_kb
 from states.update_item_states import UpdateItemState
 from states.inline_kb_states import InlineKeyboardState
 from helpers.validators import validate_updating_field
-from database.requests import update_item_field
+from database.all_requests import update_item_field
 
 
 router = Router()

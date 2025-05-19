@@ -9,7 +9,7 @@ from utils.constants import constants_uz
 from utils.keyboards import inline_kb
 from handlers.handler_utils.message_bodies.msg_category_util import msg_category__
 from database.models import Category
-from database.requests import add_category
+from database.all_requests import add_category
 from helpers.validators import validate_category_name
 
 

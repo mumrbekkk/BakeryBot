@@ -1,4 +1,4 @@
-from database import requests
+from database import all_requests as requests
 from database.models import SweetItem
 from states.add_item_states import AddItemState
 from states.keyboard_states import ReplyKeyboardState

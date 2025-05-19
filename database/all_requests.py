@@ -3,7 +3,6 @@ from database.models import User, Category, SweetItem
 
 from sqlalchemy import select
 from sqlalchemy.orm import selectinload
-from sqlalchemy.exc import SQLAlchemyError
 
 
 # --------------------------- USER MODEL RELATED --------------------------- #

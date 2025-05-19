@@ -1,8 +1,8 @@
 from aiogram.types import Message, CallbackQuery
 
-from database.requests import get_category_by_id, get_category_by_name
+from database.all_requests import get_category_by_id, get_category_by_name
 from utils.constants import constants
-from database import requests
+from database import all_requests as requests
 
 
 async def is_admin_or_not(username) -> bool:

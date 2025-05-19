@@ -7,9 +7,13 @@ class ReplyKeyboardState(StatesGroup):
     menu_state = State()
     menu_category_state = State()
 
+    price_filter_state = State()
+    price_filter_item_state = State()
+
     about_state = State()
     instagram_state = State()
     telegram_state = State()
+
     admin_state = State()
     item_state = State()
     category_state = State()

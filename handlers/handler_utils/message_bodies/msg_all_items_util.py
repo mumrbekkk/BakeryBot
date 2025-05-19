@@ -1,7 +1,7 @@
 from aiogram.types import Message, CallbackQuery, ReplyKeyboardRemove
 from aiogram.fsm.context import FSMContext
 
-from database.requests import get_all_items
+from database.all_requests import get_all_items
 from utils.keyboards import inline_kb
 from states.inline_kb_states import InlineKeyboardState
 

@@ -5,8 +5,7 @@ from aiogram.fsm.context import FSMContext
 
 from states.keyboard_states import ReplyKeyboardState
 from utils.keyboards import reply_kb
-from database.requests import get_item_by_name
-from helpers.methods import price_to_string
+from handlers.handler_utils.message_bodies.msg_item_detail_util import msg_item_detail__
 
 
 router = Router()
@@ -16,24 +15,14 @@ router = Router()
 async def msg_category(message: Message, state: FSMContext):
     category_name = message.text
     await message.answer(text=f"{category_name} kategoriya mahsulotlari",
-                         reply_markup=await reply_kb.category_kb(category_name))
+                         reply_markup=await reply_kb.category_kb(category_name=category_name))
 
     await state.set_state(ReplyKeyboardState.menu_category_state)
 
 
 @router.message(ReplyKeyboardState.menu_category_state)
-async def msg_category_detail(message: Message):
-    item_name = message.text
-    item = await get_item_by_name(item_name)
-    price = await price_to_string(item.price)
-
-    await message.answer(
-        text=f"<b>{item.name.capitalize()}</b>\n\n"
-             f"{item.description}\n"
-             f"💵 Narxi: {price}\n\n"
-             f"{item.image_url}",
-        parse_mode="HTML"
-    )
+async def msg_category_item_detail(message: Message):
+    await msg_item_detail__(message)
 
 
 

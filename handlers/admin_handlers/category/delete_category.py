@@ -6,7 +6,7 @@ from aiogram.types import CallbackQuery
 from states.keyboard_states import ReplyKeyboardState
 from states.inline_kb_states import InlineKeyboardState
 from utils.keyboards import inline_kb
-from database.requests import delete_category_by_id
+from database.all_requests import delete_category_by_id
 
 
 router = Router()

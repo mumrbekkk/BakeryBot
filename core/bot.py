@@ -1,12 +1,12 @@
 from aiogram import Bot, Dispatcher
 
-from core.config import TOKEN
+from core.config import BOT_TOKEN
 from handlers import routers
-from database.models import async_database
+# from database.models import async_database
 
 """--------------------------------------------------------------"""
 
-bot = Bot(token=TOKEN)
+bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
 
 for router in routers:
@@ -14,7 +14,7 @@ for router in routers:
 
 
 async def main():
-    await async_database()
+    # await async_database()
     await dp.start_polling(bot)
 
 
