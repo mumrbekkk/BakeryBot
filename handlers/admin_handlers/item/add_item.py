@@ -88,8 +88,7 @@ async def item_price(message: Message, state: FSMContext):
     price = message.text
     if not await validate_price(price, message):
         return
-
-    await state.update_data(price=price)
+    await state.update_data(price=int(price))
 
     categories = await requests.get_all_categories()
     categories_txt = ""
@@ -141,6 +140,7 @@ async def item_confirm_yes(callback: CallbackQuery, state: FSMContext):
             category=data['category']
         )
     )
+
     await callback.message.edit_text(
         text="✅ Mahsulot muvaffaqiyatli qo‘shildi!"
     )

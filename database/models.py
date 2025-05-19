@@ -1,4 +1,4 @@
-from sqlalchemy import BigInteger, String, ForeignKey
+from sqlalchemy import BigInteger, String, ForeignKey, Integer
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine, AsyncSession
 
@@ -39,7 +39,7 @@ class SweetItem(Base):
     name: Mapped[str] = mapped_column(String(100))
     description: Mapped[str] = mapped_column(String(200))
     image_url: Mapped[str] = mapped_column(String(200))
-    price: Mapped[int] = mapped_column()
+    price: Mapped[int] = mapped_column(Integer)
     category: Mapped[int] = mapped_column(ForeignKey("categories.id"))
 
     item_category = relationship("Category", back_populates="sweet_items", lazy="selectin")
