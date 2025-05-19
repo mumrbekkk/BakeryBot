@@ -6,8 +6,16 @@ FROM python:3.11-slim
 WORKDIR /app
 
 # Copy files
-COPY bot/ /app/
+COPY main.py .
+COPY handlers/ ./handlers/
+COPY states/ ./states/
+COPY utils/ ./utils/
+COPY alembic/ ./alembic/
+COPY alembic.ini .
 COPY requirements.txt .
+COPY core/ ./core/
+COPY database/ ./database/
+COPY helpers/ ./helpers/
 
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
