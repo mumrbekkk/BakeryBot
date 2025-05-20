@@ -45,6 +45,6 @@ class SweetItem(Base):
     item_category = relationship("Category", back_populates="sweet_items", lazy="selectin")
 
 
-# async def async_database():
-#     async with engine.begin() as conn:
-#         await conn.run_sync(Base.metadata.create_all)
+async def async_database():
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)

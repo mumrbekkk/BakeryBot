@@ -116,10 +116,9 @@ async def confirmation_kb(back_callback: str):
 
 
 # <ADMIN> CATEGORY SECTION
-async def category_list_kb():
+async def category_list_kb(categories):
     keyboard = InlineKeyboardBuilder()
 
-    categories = await get_all_categories()
     for category in categories:
         keyboard.add(InlineKeyboardButton(text=category.name, callback_data=f"category_{category.id}"))
     keyboard.add(InlineKeyboardButton(text=f"🔙 Orqaga", callback_data="back_to_category"))

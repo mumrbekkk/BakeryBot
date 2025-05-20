@@ -34,20 +34,15 @@ async def string_price_to_int(price: str) -> int:
     return int(_price)
 
 
-async def is_admin_or_not(username) -> bool:
-    if username == constants.ADMIN_1_USERNAME:
-        return True
-    elif username == constants.ADMIN_2_USERNAME:
-        return True
-    else:
-        return False
-
-
 async def send_data_to_admin(bot, data):
-    admin = await get_user_by_username(constants.ADMIN_3_USERNAME) or await get_user_by_username(constants.ADMIN_1_USERNAME)
+    admin = await get_user_by_username(constants.ADMIN_2_USERNAME)
+    admin_staff = await get_user_by_username(constants.ADMIN_1_USERNAME)
 
     if admin:
         await bot.send_message(admin.tg_id, data)
+    elif admin_staff:
+        await bot.send_message(admin_staff.tg_id, data)
+
 
 
 async def price_filter_pairs(start, end, step):

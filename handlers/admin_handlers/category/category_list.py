@@ -7,6 +7,7 @@ from states.inline_kb_states import InlineKeyboardState
 from utils.constants import constants_uz
 from utils.keyboards import inline_kb
 from handlers.handler_utils.message_bodies.msg_category_util import msg_category__
+from database.all_requests import get_all_categories
 
 
 router = Router()
@@ -14,9 +15,12 @@ router = Router()
 
 @router.message(ReplyKeyboardState.category_state, F.text == constants_uz.ALL_CATEGORIES_TXT)
 async def msg_category_list(message: Message, state: FSMContext):
-    await message.answer(text=constants_uz.ALL_CATEGORIES_TXT, reply_markup=await inline_kb.category_list_kb())
-
-    await state.set_state(InlineKeyboardState.category_list_state)
+    categories = await get_all_categories()
+    if list(categories):
+        await message.answer(text=constants_uz.ALL_CATEGORIES_TXT, reply_markup=await inline_kb.category_list_kb(categories))
+        await state.set_state(InlineKeyboardState.category_list_state)
+    else:
+        await message.answer(text="Kategoriya mavjud emas")
 
 
 @router.callback_query(InlineKeyboardState.category_list_state, F.data == "back_to_category")

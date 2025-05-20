@@ -36,10 +36,9 @@ async def msg_items_by_price(message: Message, state: FSMContext):
                  f"{item_names}",
             reply_markup=await reply_kb.category_kb(item_list=items)
         )
+        await state.set_state(ReplyKeyboardState.price_filter_item_state)
     else:
         await message.answer(text="Kiritilgan narxlarda mahsulot mavjud emas")
-
-    await state.set_state(ReplyKeyboardState.price_filter_item_state)
 
 
 @router.message(ReplyKeyboardState.price_filter_item_state)

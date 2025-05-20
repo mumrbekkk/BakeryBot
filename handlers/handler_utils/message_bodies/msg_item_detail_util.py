@@ -16,3 +16,4 @@ async def msg_item_detail__(message: Message):
              f"{item.image_url}",
         parse_mode="HTML"
     )
+
