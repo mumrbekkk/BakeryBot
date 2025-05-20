@@ -16,7 +16,7 @@ router = Router()
 @router.message(ReplyKeyboardState.category_state, F.text == constants_uz.ALL_CATEGORIES_TXT)
 async def msg_category_list(message: Message, state: FSMContext):
     categories = await get_all_categories()
-    if list(categories):
+    if categories:
         await message.answer(text=constants_uz.ALL_CATEGORIES_TXT, reply_markup=await inline_kb.category_list_kb(categories))
         await state.set_state(InlineKeyboardState.category_list_state)
     else:

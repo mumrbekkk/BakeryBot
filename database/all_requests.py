@@ -33,7 +33,7 @@ async def get_user_by_username(username: str) -> User:
 async def get_all_categories():
     async with async_session() as session:
         categories = await session.scalars(select(Category))
-    return categories
+    return categories.all()
 
 
 async def get_category_by_id(category_id: int) -> Category | None:
@@ -95,7 +95,7 @@ async def delete_category_by_id(category_id: int) -> str:
 async def get_all_items():
     async with async_session() as session:
         items = await session.scalars(select(SweetItem))
-    return items
+    return items.all()
 
 
 async def add_item(new_item: SweetItem):

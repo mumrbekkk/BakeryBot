@@ -142,8 +142,7 @@ async def item_confirm_yes(callback: CallbackQuery, state: FSMContext):
             category=data['category']
         )
     )
-    print(f"Type: {type(data['price'])}")
-
+    
     await callback.message.edit_text(
         text="✅ Mahsulot muvaffaqiyatli qo‘shildi!"
     )

@@ -6,10 +6,9 @@ from database import all_requests as requests
 
 
 async def is_admin_or_not(username) -> bool:
-    if username == constants.ADMIN_1_USERNAME:
+    if username == constants.ADMIN_2_USERNAME or username == constants.ADMIN_1_USERNAME:
         return True
-    elif username == constants.ADMIN_2_USERNAME:
-        return True
+
     return False
 
 
@@ -78,7 +77,8 @@ async def validate_updating_field(field_to_update: str, value: str, message: Mes
     elif field_to_update == "image_url":
         return await validate_url(value, message=message)
     elif field_to_update == "price":
-        return await validate_price(value, message=message)
+        if not await validate_price(value, message=message):
+            return False
     elif field_to_update == "category":
         return await validate_category(value, message=message)
 

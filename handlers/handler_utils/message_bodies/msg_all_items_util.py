@@ -8,9 +8,9 @@ from states.inline_kb_states import InlineKeyboardState
 
 async def all_items__(msg, state: FSMContext):
     all_items = await get_all_items()
-    items_list_kb = await inline_kb.items_list_kb(all_items)
+    items_list_kb = await inline_kb.items_list_kb(all_items)\
 
-    if list(all_items):
+    if all_items:
         if type(msg) is Message:
             await msg.answer(text="🧾 Mahsulotlar Ro'yhati", reply_markup=ReplyKeyboardRemove())
             await msg.answer(text="🧾 Ro'yhat 🧾", reply_markup=items_list_kb)
