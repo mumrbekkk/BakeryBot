@@ -6,7 +6,7 @@ from aiogram.filters import StateFilter
 from states.inline_kb_states import InlineKeyboardState
 from utils.constants import constants_uz
 from utils.keyboards import inline_kb
-from database.all_requests import get_category_by_id
+from database.all_requests import get_category_by_id, get_all_categories
 
 
 router = Router()
@@ -39,7 +39,7 @@ async def callback_category_details(callback: CallbackQuery, state: FSMContext):
 async def callback_back_to_category_list(callback: CallbackQuery, state: FSMContext):
     await callback.message.edit_text(
         text=constants_uz.ALL_CATEGORIES_TXT,
-        reply_markup=await inline_kb.category_list_kb()
+        reply_markup=await inline_kb.category_list_kb(await get_all_categories())
     )
 
     await state.set_state(InlineKeyboardState.category_list_state)
